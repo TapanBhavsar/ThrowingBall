@@ -14,8 +14,20 @@ class SensorData
     void CalculateGroundTruth();
     void AddNoise();
     bool isGroundTouched();
+    void InitializeState();
+
+    void SetPriorPredictState();
+    void SetInputState();
 
     KalmanFilterMatrices kalman_matrices;
+
+    Eigen::MatrixXd prior_predict_state_;
+    Eigen::MatrixXd predict_state_;
+    Eigen::MatrixXd input_;
+    Eigen::MatrixXd ground_truth_state_;
+
+    ros::NodeHandle nh_;
+
 };
 
 #endif // _SENSOR_DATA_H_

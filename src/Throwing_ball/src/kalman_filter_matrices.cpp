@@ -18,6 +18,21 @@ void KalmanFilterMatrices::SetAllMatrices()
     SetMeasurementMatrix();
 }
 
+Eigen::MatrixXd KalmanFilterMatrices::GetSystemMatrix() const
+{
+    return A_system_matrix_;
+}
+
+Eigen::MatrixXd KalmanFilterMatrices::GetInputGainMatrix() const
+{
+    return B_input_gain_matrix_;
+}
+
+Eigen::MatrixXd KalmanFilterMatrices::GetMeasurementMatrix() const
+{
+    return c_measurement_matrix_;
+}
+
 void KalmanFilterMatrices::SetSystemMatrix()
 {
     double A_system_matrix_height;
@@ -65,3 +80,5 @@ void KalmanFilterMatrices::SetMeasurementMatrix()
                                                    c_measurement_matrix_height,
                                                    c_measurement_matrix_width);
 }
+
+

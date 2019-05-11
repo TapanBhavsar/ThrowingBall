@@ -10,6 +10,9 @@ class KalmanFilterMatrices
     KalmanFilterMatrices(ros::NodeHandle nh);
     ~KalmanFilterMatrices();
     void SetAllMatrices();
+    Eigen::MatrixXd GetSystemMatrix() const;
+    Eigen::MatrixXd GetInputGainMatrix() const;
+    Eigen::MatrixXd GetMeasurementMatrix() const;
 
   private:
     void SetSystemMatrix();

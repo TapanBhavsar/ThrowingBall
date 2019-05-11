@@ -18,3 +18,11 @@ c_measurement_matrix_height: 2
 c_measurement_matrix_width: 4
 c_measurement_matrix: [1,0,0,0,
                        0,1,0,0]
+
+prior_state_height: 4
+prior_state_width: 1
+prior_state: [0,0,9,9]
+
+input_state_height: 1
+input_state_width: 1
+input_state: [-9.8]
