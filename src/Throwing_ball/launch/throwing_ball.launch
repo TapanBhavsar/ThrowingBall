@@ -1,0 +1,7 @@
+<launch>
+<rosparam command="load" file="$(find Throwing_ball)/config/sensor_data_config.yaml" />
+    <node pkg="Throwing_ball"
+          name="sensor_data"
+          type="sensor_data"
+          output="screen"/>
+</launch>
