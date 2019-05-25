@@ -20,7 +20,7 @@ void KalmanFilterMatrices::SetAllMatrices()
 
 Eigen::MatrixXd KalmanFilterMatrices::GetSystemMatrix() const
 {
-    return A_system_matrix_;
+    return A_system_matrix_.transpose();
 }
 
 Eigen::MatrixXd KalmanFilterMatrices::GetInputGainMatrix() const
@@ -40,13 +40,15 @@ void KalmanFilterMatrices::SetSystemMatrix()
 
     std::vector<double> buffer;
 
+
     nh_.getParam("A_system_matrix_height",A_system_matrix_height);
     nh_.getParam("A_system_matrix_width",A_system_matrix_width);
     nh_.getParam("A_system_matrix",buffer);
- 
+    
     A_system_matrix_ = Eigen::Map<Eigen::MatrixXd>(buffer.data(),
                                                    A_system_matrix_height,
                                                    A_system_matrix_width);
+
 }
 
 void KalmanFilterMatrices::SetInputGainMatrix()

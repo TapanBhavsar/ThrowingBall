@@ -6,20 +6,25 @@
 #include <std_msgs/MultiArrayDimension.h>
 #include <eigen_conversions/eigen_msg.h>
 
-class sensor_data_node
+#include "kalman_filter_matrices.h"
+#include "sensor_data.h"
+
+class SensorDataNode
 {
   public:
-    sensor_data_node(ros::NodeHandle nh);
-    ~sensor_data_node();
+    SensorDataNode(ros::NodeHandle nh);
+    void PublishMesurementData();
+
   private:
-    double kFrequency_ {2};
+    double kFrequency_ {100};
+    double kMessageQueue_ {100};
+    std::string measurement_topic_name_ {"measured_data"};
 
-    double message_queue_;
-
+    SensorData sd_;
+    
     ros::NodeHandle nh_;
     ros::Rate rate_;
-    /* data */
-
+    ros::Publisher measurement_publisher_;
 };
 
 #endif // _SENSOR_DATA_NODE_H_

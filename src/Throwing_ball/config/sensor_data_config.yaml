@@ -9,15 +9,14 @@ A_system_matrix: [1,0,0.001,0,
                   0,0,1,0,
                   0,0,0,1]
 
-
 B_input_gain_height: 4
 B_input_gain_width: 1
 B_input_gain_matrix: [0,0.0000005,0,0.001]
 
 c_measurement_matrix_height: 2
 c_measurement_matrix_width: 4
-c_measurement_matrix: [1,0,0,0,
-                       0,1,0,0]
+c_measurement_matrix: [1,0,0,1,
+                       0,0,0,0]
 
 prior_state_height: 4
 prior_state_width: 1

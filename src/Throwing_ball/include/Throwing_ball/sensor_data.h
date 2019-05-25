@@ -10,14 +10,18 @@ class SensorData
 {
   public:
     SensorData(ros::NodeHandle nh);
+    bool isGroundTouched();
+    Eigen::MatrixXd GetMesurements();
   private:
     void CalculateGroundTruth();
     void AddNoise();
-    bool isGroundTouched();
     void InitializeState();
 
     void SetPriorPredictState();
     void SetInputState();
+
+    const double k_mean_value_ {0};
+    const double k_standard_deviation_ {0.1}; 
 
     KalmanFilterMatrices kalman_matrices;
 
@@ -25,9 +29,9 @@ class SensorData
     Eigen::MatrixXd predict_state_;
     Eigen::MatrixXd input_;
     Eigen::MatrixXd ground_truth_state_;
-
+    Eigen::MatrixXd measurements_;
+  
     ros::NodeHandle nh_;
-
 };
 
 #endif // _SENSOR_DATA_H_
