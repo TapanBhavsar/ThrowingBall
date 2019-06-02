@@ -10,8 +10,10 @@ class SensorData
 {
   public:
     SensorData(ros::NodeHandle nh);
+    ~SensorData();
     bool isGroundTouched();
     Eigen::MatrixXd GetMesurements();
+  
   private:
     void CalculateGroundTruth();
     void AddNoise();

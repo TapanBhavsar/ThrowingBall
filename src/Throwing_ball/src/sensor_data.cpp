@@ -9,6 +9,11 @@ SensorData::SensorData(ros::NodeHandle nh)
     InitializeState();  
 }
 
+SensorData::~SensorData()
+{
+
+}
+
 bool SensorData::isGroundTouched()
 {
     if(predict_state_(0,0) > 0 && predict_state_(1,0) < 0)
@@ -35,10 +40,7 @@ void SensorData::CalculateGroundTruth()
     Eigen::MatrixXd c_measurement_matrix = kalman_matrices.GetMeasurementMatrix();
     
     predict_state_ = A_system_matrix * prior_predict_state_ + B_input_gain_matrix * input_;
-    std::cout << "measurement matrix: " <<  c_measurement_matrix << std::endl;
-    std::cout << "prediction: " <<  predict_state_ << std::endl;
     ground_truth_state_ = c_measurement_matrix * predict_state_;
-    std::cout << "ground truth: " <<  ground_truth_state_ << std::endl;
     prior_predict_state_ = predict_state_; 
 }
 

@@ -10,6 +10,10 @@ SensorDataNode::SensorDataNode(ros::NodeHandle nh)
     measurement_publisher_ = nh_.advertise<std_msgs::Float64MultiArray>(measurement_topic_name_,kMessageQueue_);
 }
 
+SensorDataNode::~SensorDataNode()
+{
+
+}
 
 void SensorDataNode::PublishMesurementData()
 {

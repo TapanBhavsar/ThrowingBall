@@ -25,3 +25,22 @@ prior_state: [0,0,9,9]
 input_state_height: 1
 input_state_width: 1
 input_state: [-9.8]
+
+Q_process_noise_height: 4
+Q_process_noise_width: 4
+Q_process_noise: [0.001,0,0,0,
+                  0,0.001,0,0,
+                  0,0,0.001,0,
+                  0,0,0,0.001]
+
+prior_covariance_height: 4
+prior_covariance_width: 4
+prior_covariance: [1,0,0,0,
+                   0,1,0,0,
+                   0,0,1,0,
+                   0,0,0,1]
+
+R_measurement_noise_height: 2
+R_measurement_noise_width: 2
+R_measurement_noise: [1,0,
+                      0,1]

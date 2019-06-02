@@ -205,11 +205,17 @@ include_directories(
 add_library(${PROJECT_NAME}
   src/kalman_filter_matrices.cpp
   src/sensor_data.cpp
+  src/kalman_filter.cpp
 )
-
 
 add_executable(sensor_data src/sensor_data_node.cpp)
 target_link_libraries(sensor_data
+  ${catkin_LIBRARIES}
+  ${PROJECT_NAME}
+)
+
+add_executable(kalman_filter src/kalman_filter_node.cpp)
+target_link_libraries(kalman_filter
   ${catkin_LIBRARIES}
   ${PROJECT_NAME}
 )

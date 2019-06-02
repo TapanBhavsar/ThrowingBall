@@ -13,6 +13,7 @@ class SensorDataNode
 {
   public:
     SensorDataNode(ros::NodeHandle nh);
+    ~SensorDataNode();
     void PublishMesurementData();
 
   private:

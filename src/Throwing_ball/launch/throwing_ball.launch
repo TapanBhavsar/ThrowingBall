@@ -4,4 +4,8 @@
           name="sensor_data"
           type="sensor_data"
           output="screen"/>
+    <node pkg="Throwing_ball"
+          name="kalman_filter"
+          type="kalman_filter"
+          output="screen"/>
 </launch>
