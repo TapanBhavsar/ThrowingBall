@@ -9,4 +9,4 @@ This package contains two Nodes:
   
 After implementation of Kalman Filter the visualization of trajectory will be displayed on Rviz.
 
-Currently, working on sensor data implementation which will publish noise data to kalman node.
+Currently, Implementation of above two nodes has been completed. atlast the visualization part on Rviz is still on hold.
